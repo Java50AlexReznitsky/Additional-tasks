@@ -1,27 +1,20 @@
 package telran.addTasks.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import telran.addTasks.AddTasks;
+import telran.addTasks.AddTask_4;
 
 public class AddTasksTest {
 	@Test
-	void maxSubsequenceLength() {
-		int[] array = { 0, 0, 0, 0, 5, 1, 1, 1, 5 };
-		assertEquals(4, AddTasks.maxSubsequenceLength(array));
-	}
-
-//	@Test
-//	void myDecimalToBinaryTest() {
-//		assertEquals("101", AddTasks.myDecimalToBinary(5));
-//		assertEquals("110100", AddTasks.myDecimalToBinary(52));
-//	}
-
-	@Test
-	void javaDecimalToBinaryTest() {
-		assertEquals("101", Integer.toBinaryString(5));
-		assertEquals("110100", Integer.toBinaryString(52));
+	void hasValidBracketsTest() {
+		String str1 = "aaaaaa (sdfsdfdsf[dfd(f)f] zcvzxcv {{[ghjk]}} asd )";
+		String str2 = ")dfgswfgsf(";
+		String str3 = "[werwert(wertwrtw] wertrt)";
+		assertTrue(AddTask_4.hasValidBrackets(str1));
+		assertFalse(AddTask_4.hasValidBrackets(str2));
+		assertFalse(AddTask_4.hasValidBrackets(str3));
 	}
 }
