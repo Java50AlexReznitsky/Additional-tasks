@@ -17,6 +17,7 @@ public class AddTask_4 {
 				}
 			}
 		}
+		
 		return stack.isEmpty();
 	}
 
