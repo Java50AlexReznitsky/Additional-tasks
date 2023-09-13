@@ -24,17 +24,21 @@ public class EmployeeServiceMapsImpl implements EmployeeService {
 		boolean res = false;
 		Employee current = employees.get(empl.getId());
 		if (current == null) {
-			employees.put(empl.getId(), empl);
-			ages.computeIfAbsent(empl.getAge(), k -> new HashSet<>()).add(empl);
-			salaries.computeIfAbsent(empl.getSalary(), k -> new HashSet<>()).add(empl);
-			departments.computeIfAbsent(empl.getDepartment(), k -> new HashSet<>()).add(empl);
+			addToAll(empl);
 			res = true;
 			size++;
 		} else if (!current.equals(empl)) {
 			res = true;
 		}
-		employees.put(empl.getId(), empl);
+		addToAll(empl);
 		return res;
+	}
+
+	private void addToAll(Employee empl) {
+		employees.put(empl.getId(), empl);
+		ages.computeIfAbsent(empl.getAge(), k -> new HashSet<>()).add(empl);
+		salaries.computeIfAbsent(empl.getSalary(), k -> new HashSet<>()).add(empl);
+		departments.computeIfAbsent(empl.getDepartment(), k -> new HashSet<>()).add(empl);
 	}
 
 	@Override
